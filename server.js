@@ -25,13 +25,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Define Routes
+app.use("/api/auth", require("./routes/auth.routes.js"));
 app.use("/api/users", require("./routes/users.routes.js"));
 app.use("/api/contacts", require("./routes/contacts.routes.js"));
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
-});
 
 // set port, listen for requests
 app.listen(PORT, () => {
