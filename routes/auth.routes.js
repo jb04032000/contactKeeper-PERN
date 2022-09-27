@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const auth = require("../middleware/auth");
+require("dotenv").config();
 
 const User = require("../database/models").User;
 
@@ -13,7 +14,10 @@ const User = require("../database/models").User;
 
 router.get("/", auth, async (req, res) => {
   try {
-    const user = await User.findByPk(req.user.id).select("-password");
+    const user = await User.findOne({
+      attributes: { exclude: ["password"] },
+      where: { id: req.user.id },
+    });
     res.json(user);
   } catch (error) {
     console.log(error.message);
@@ -37,7 +41,6 @@ router.post(
     }
 
     const { email, password } = req.body;
-
     try {
       const user = await User.findOne({ where: { email } });
 
