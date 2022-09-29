@@ -1,24 +1,16 @@
+import { lazy } from "react";
 import Button from "react-bootstrap/Button";
+import RoueConfig from "./RouteConfig";
 import "./styles/App.scss";
+
+const Navbar = lazy(() => import("./components/layouts/Navbar"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="primary">Primary</Button>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <RoueConfig />
+    </>
   );
 }
 
