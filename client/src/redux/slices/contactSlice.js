@@ -9,10 +9,10 @@ const initialState = {
 };
 
 const getContactsOperations = {
-  contactOperationRequested: (state) => {
+  getContactListRequested: (state) => {
     state.loading = true;
   },
-  contactOperationFail: (state, action) => {
+  getContactListFail: (state, action) => {
     state.loading = false;
   },
   getContactListSuccess: (state, action) => {
@@ -30,8 +30,8 @@ export const contactSlice = createSlice({
 });
 
 export const {
-  contactOperationRequested,
-  contactOperationFail,
+  getContactListRequested,
+  getContactListFail,
   getContactListSuccess,
 } = contactSlice.actions;
 

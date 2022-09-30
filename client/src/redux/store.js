@@ -8,9 +8,12 @@ const SagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleWare) => {
-    return getDefaultMiddleWare({ thunk: false }).prepend(SagaMiddleware);
+    return getDefaultMiddleWare({
+      serializableCheck: false,
+      thunk: false,
+    }).prepend(SagaMiddleware);
   },
-  devTools: process.env.NODE_ENV !== "production",
+  // devTools: process.env.REACT_APP_NODE_ENV !== "production",
 });
 
 SagaMiddleware.run(rootSaga);

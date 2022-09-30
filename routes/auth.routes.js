@@ -64,7 +64,8 @@ router.post(
         payload,
         process.env.JWT_SECRET,
         {
-          expiresIn: process.env.JWT_EXPIRATION_TIME,
+          // expiresIn: process.env.JWT_EXPIRATION_TIME,
+          expiresIn: 3600,
         },
         (error, token) => {
           if (error) {

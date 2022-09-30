@@ -4,6 +4,7 @@ import auth from "./authSlice";
 
 const reducer = combineReducers({
   contacts,
+  auth,
 });
 
 export default reducer;

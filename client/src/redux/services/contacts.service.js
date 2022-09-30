@@ -1,12 +1,12 @@
 import axios from "axios";
-import API_URLS from "../../utils/apiUrls";
+import API_URLS, { baseUrl } from "../../utils/apiUrls";
 
 // get contact list
 export async function getContactList() {
-  const url = `/${API_URLS.contacts}`;
+  const url = baseUrl + `${API_URLS.contacts}`;
 
   return await axios
-    .request(url)
+    .get(url)
     .then((response) => {
       if (response.status === 200) {
         return {
