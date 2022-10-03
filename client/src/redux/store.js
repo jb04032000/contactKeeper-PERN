@@ -13,7 +13,7 @@ const store = configureStore({
       thunk: false,
     }).prepend(SagaMiddleware);
   },
-  // devTools: process.env.REACT_APP_NODE_ENV !== "production",
+  devTools: process.env.REACT_APP_NODE_ENV !== "production",
 });
 
 SagaMiddleware.run(rootSaga);
